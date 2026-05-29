@@ -12,10 +12,62 @@
       scroll-behavior: smooth;
     }
 
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
     body {
       background: #0d1117;
       overflow-x: hidden;
       font-family: Arial, sans-serif;
+      cursor: none;
+    }
+
+    .cursor {
+      width: 18px;
+      height: 18px;
+      border: 2px solid #34d399;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+      transition: transform .08s ease;
+      box-shadow: 0 0 25px #34d399;
+    }
+
+    .cursor-dot {
+      width: 5px;
+      height: 5px;
+      background: #34d399;
+      border-radius: 50%;
+      position: fixed;
+      pointer-events: none;
+      transform: translate(-50%, -50%);
+      z-index: 9999;
+    }
+
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      background-image:
+        linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      background-size: 40px 40px;
+      z-index: -2;
+      animation: gridMove 20s linear infinite;
+    }
+
+    @keyframes gridMove {
+      from {
+        transform: translateY(0px);
+      }
+      to {
+        transform: translateY(40px);
+      }
     }
 
     .glow {
@@ -25,6 +77,16 @@
       border-radius: 9999px;
       filter: blur(120px);
       z-index: 0;
+      animation: floating 8s ease-in-out infinite;
+    }
+
+    @keyframes floating {
+      0%,100% {
+        transform: translateY(0px);
+      }
+      50% {
+        transform: translateY(-30px);
+      }
     }
 
     .glass {
@@ -34,15 +96,93 @@
     }
 
     .card-hover {
-      transition: 0.3s ease;
+      transition: 0.4s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .card-hover::before {
+      content: '';
+      position: absolute;
+      width: 300px;
+      height: 300px;
+      background: radial-gradient(circle, rgba(52,211,153,0.18), transparent 70%);
+      top: -150px;
+      left: -150px;
+      opacity: 0;
+      transition: .5s;
+    }
+
+    .card-hover:hover::before {
+      opacity: 1;
     }
 
     .card-hover:hover {
-      transform: translateY(-10px);
+      transform: translateY(-15px) scale(1.02);
+      box-shadow: 0 30px 60px rgba(0,0,0,0.4);
+    }
+
+    .shine {
+      position: relative;
+      overflow: hidden;
+    }
+
+    .shine::after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: -120%;
+      width: 80%;
+      height: 100%;
+      background: linear-gradient(90deg, transparent, rgba(255,255,255,0.3), transparent);
+      transform: skewX(-20deg);
+      animation: shine 4s infinite;
+    }
+
+    @keyframes shine {
+      100% {
+        left: 140%;
+      }
+    }
+
+    .typing {
+      border-right: 3px solid #34d399;
+      white-space: nowrap;
+      overflow: hidden;
+      width: 0;
+      animation: typing 4s steps(30,end) forwards, blink .7s infinite;
+    }
+
+    @keyframes typing {
+      to {
+        width: 100%;
+      }
+    }
+
+    @keyframes blink {
+      50% {
+        border-color: transparent;
+      }
+    }
+
+    .fade-up {
+      opacity: 0;
+      transform: translateY(40px);
+      animation: fadeUp 1s ease forwards;
+    }
+
+    @keyframes fadeUp {
+      to {
+        opacity: 1;
+        transform: translateY(0);
+      }
     }
   </style>
 </head>
 <body class="text-white relative min-h-screen">
+
+  <div class="cursor"></div>
+  <div class="cursor-dot"></div>
 
   <!-- Background -->
   <div class="glow bg-emerald-500/20 top-0 left-0"></div>
@@ -72,15 +212,15 @@
         Fullstack Developer
       </p>
 
-      <h2 class="text-5xl md:text-7xl font-black leading-tight">
+      <h2 class="text-5xl md:text-7xl font-black leading-tight fade-up">
         Elegant &
         <span class="block bg-gradient-to-r from-emerald-400 to-cyan-400 text-transparent bg-clip-text">
-          Interactive
+          Interactive ✨
         </span>
         Portfolio
       </h2>
 
-      <p class="text-gray-400 text-lg leading-relaxed mt-8 max-w-xl">
+      <p class="text-gray-400 text-lg leading-relaxed mt-8 max-w-xl typing">
         Saya membuat website modern dengan desain elegan,
         performa cepat, dan pengalaman pengguna yang interaktif.
       </p>
@@ -100,7 +240,7 @@
 
     <!-- Hero Card -->
     <div class="relative">
-      <div class="glass rounded-3xl p-6 shadow-2xl shadow-black/40">
+      <div class="glass rounded-3xl p-6 shadow-2xl shadow-black/40 shine">
 
         <div class="flex gap-2 mb-6">
           <div class="w-3 h-3 rounded-full bg-red-400"></div>
@@ -269,6 +409,35 @@
   <footer class="border-t border-white/10 py-8 text-center text-gray-500 text-sm relative z-10">
     © 2026 Faisal Al Aziz — Elegant Interactive Portfolio.
   </footer>
+
+  <script>
+    const cursor = document.querySelector('.cursor');
+    const dot = document.querySelector('.cursor-dot');
+
+    document.addEventListener('mousemove', (e) => {
+      cursor.style.left = e.clientX + 'px';
+      cursor.style.top = e.clientY + 'px';
+
+      dot.style.left = e.clientX + 'px';
+      dot.style.top = e.clientY + 'px';
+    });
+
+    const cards = document.querySelectorAll('.card-hover');
+
+    cards.forEach(card => {
+      card.addEventListener('mousemove', (e) => {
+        const rect = card.getBoundingClientRect();
+        const x = e.clientX - rect.left;
+        const y = e.clientY - rect.top;
+
+        card.style.transform = `perspective(1000px) rotateX(${-(y - rect.height / 2) / 18}deg) rotateY(${(x - rect.width / 2) / 18}deg) scale(1.03)`;
+      });
+
+      card.addEventListener('mouseleave', () => {
+        card.style.transform = 'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
+      });
+    });
+  </script>
 
 </body>
 </html>
