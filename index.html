@@ -1,237 +1,274 @@
-export default function PortfolioWebsite() {
-  const projects = [
-    {
-      title: 'Medical Reporting System',
-      desc: 'Sistem informasi pelaporan 10 besar penyakit berbasis web dengan dashboard interaktif.',
-      tech: ['PHP', 'MySQL', 'Bootstrap'],
-    },
-    {
-      title: 'Specimen Tube Tracking',
-      desc: 'Sistem tracking specimen laboratorium dengan monitoring data real-time.',
-      tech: ['JavaScript', 'Spreadsheet', 'API'],
-    },
-    {
-      title: 'Data Analytics Dashboard',
-      desc: 'Dashboard analisis data dengan visualisasi modern dan performa optimal.',
-      tech: ['React', 'Chart.js', 'Tailwind'],
-    },
-  ];
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Faisal.dev Portfolio</title>
 
-  const skills = [
-    'HTML',
-    'CSS',
-    'JavaScript',
-    'React',
-    'PHP',
-    'MySQL',
-    'Bootstrap',
-    'GitHub',
-    'UI/UX',
-  ];
+  <script src="https://cdn.tailwindcss.com"></script>
 
-  return (
-    <div className="min-h-screen bg-[#0d1117] text-white overflow-hidden">
-      {/* Background Glow */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/20 blur-[140px] rounded-full"></div>
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
+  <style>
+    html {
+      scroll-behavior: smooth;
+    }
 
-      {/* Navbar */}
-      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-[#0d1117]/80">
-        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
-          <h1 className="text-2xl font-bold tracking-wide">
-            Faisal<span className="text-emerald-400">.dev</span>
-          </h1>
+    body {
+      background: #0d1117;
+      overflow-x: hidden;
+      font-family: Arial, sans-serif;
+    }
 
-          <nav className="hidden md:flex gap-8 text-sm text-gray-300">
-            <a href="#about" className="hover:text-emerald-400 transition">About</a>
-            <a href="#skills" className="hover:text-emerald-400 transition">Skills</a>
-            <a href="#projects" className="hover:text-emerald-400 transition">Projects</a>
-            <a href="#contact" className="hover:text-emerald-400 transition">Contact</a>
-          </nav>
-        </div>
-      </header>
+    .glow {
+      position: absolute;
+      width: 500px;
+      height: 500px;
+      border-radius: 9999px;
+      filter: blur(120px);
+      z-index: 0;
+    }
 
-      {/* Hero */}
-      <section className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
-        <div>
-          <p className="text-emerald-400 mb-4 tracking-[4px] uppercase text-sm">
-            Web Developer
-          </p>
+    .glass {
+      background: rgba(255,255,255,0.05);
+      backdrop-filter: blur(20px);
+      border: 1px solid rgba(255,255,255,0.08);
+    }
 
-          <h2 className="text-5xl md:text-7xl font-black leading-tight">
-            Elegant &
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
-              Interactive
-            </span>
-            Portfolio
-          </h2>
+    .card-hover {
+      transition: 0.3s ease;
+    }
 
-          <p className="text-gray-400 mt-8 text-lg leading-relaxed max-w-xl">
-            Saya membuat website modern dengan tampilan elegan,
-            performa cepat, dan pengalaman pengguna yang interaktif.
-          </p>
+    .card-hover:hover {
+      transform: translateY(-10px);
+    }
+  </style>
+</head>
+<body class="text-white relative min-h-screen">
 
-          <div className="mt-10 flex flex-wrap gap-4">
-            <a
-              href="#projects"
-              className="px-7 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold shadow-lg shadow-emerald-500/20"
-            >
-              Explore Projects
-            </a>
+  <!-- Background -->
+  <div class="glow bg-emerald-500/20 top-0 left-0"></div>
+  <div class="glow bg-cyan-500/10 bottom-0 right-0"></div>
 
-            <a
-              href="https://github.com"
-              target="_blank"
-              className="px-7 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
-            >
-              GitHub Profile
-            </a>
-          </div>
-        </div>
+  <!-- Navbar -->
+  <header class="sticky top-0 z-50 border-b border-white/10 backdrop-blur-xl bg-[#0d1117]/80">
+    <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+      <h1 class="text-3xl font-bold">
+        Faisal<span class="text-emerald-400">.dev</span>
+      </h1>
 
-        {/* Hero Card */}
-        <div className="relative">
-          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
-            <div className="flex items-center gap-2 mb-6">
-              <div className="w-3 h-3 rounded-full bg-red-400"></div>
-              <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
-              <div className="w-3 h-3 rounded-full bg-green-400"></div>
-            </div>
-
-            <div className="space-y-4 font-mono text-sm">
-              <div className="text-emerald-400">const developer = &#123;</div>
-              <div className="pl-6 text-gray-300">name: 'Faisal Al Aziz',</div>
-              <div className="pl-6 text-gray-300">role: 'Fullstack Developer',</div>
-              <div className="pl-6 text-gray-300">focus: 'Elegant UI & Data System',</div>
-              <div className="pl-6 text-gray-300">status: 'Available for project'</div>
-              <div className="text-emerald-400">&#125;</div>
-            </div>
-          </div>
-
-          <div className="absolute -bottom-6 -left-6 bg-[#161b22] border border-white/10 rounded-2xl p-4 backdrop-blur-xl shadow-xl animate-pulse">
-            <p className="text-sm text-gray-400">GitHub Activity</p>
-            <h3 className="text-2xl font-bold text-emerald-400">1,240+</h3>
-            <p className="text-xs text-gray-500">Contributions</p>
-          </div>
-        </div>
-      </section>
-
-      {/* About */}
-      <section id="about" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
-          <h3 className="text-4xl font-bold mb-8">About Me</h3>
-
-          <p className="text-gray-300 text-lg leading-relaxed">
-            Saya adalah pengembang web yang fokus pada pembuatan sistem
-            informasi, dashboard data, dan website modern dengan desain elegan.
-            Berpengalaman dalam pengolahan data, sistem pelaporan, serta UI
-            interaktif yang responsif di berbagai perangkat.
-          </p>
-        </div>
-      </section>
-
-      {/* Skills */}
-      <section id="skills" className="max-w-6xl mx-auto px-6 py-24">
-        <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
-          <h3 className="text-4xl font-bold">Skills</h3>
-          <p className="text-gray-400">Technology & Tools</p>
-        </div>
-
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
-          {skills.map((skill, index) => (
-            <div
-              key={index}
-              className="group border border-white/10 bg-white/5 hover:bg-emerald-500/10 transition rounded-2xl p-6 text-center backdrop-blur-xl hover:-translate-y-2 duration-300"
-            >
-              <h4 className="font-semibold text-lg group-hover:text-emerald-400 transition">
-                {skill}
-              </h4>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Projects */}
-      <section id="projects" className="max-w-7xl mx-auto px-6 py-24">
-        <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
-          <h3 className="text-4xl font-bold">Featured Projects</h3>
-          <p className="text-gray-400">Selected Works</p>
-        </div>
-
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {projects.map((project, index) => (
-            <div
-              key={index}
-              className="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden hover:-translate-y-3 transition duration-300 shadow-xl"
-            >
-              <div className="h-52 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 flex items-center justify-center text-6xl font-black text-white/10">
-                0{index + 1}
-              </div>
-
-              <div className="p-6">
-                <h4 className="text-2xl font-bold mb-3 group-hover:text-emerald-400 transition">
-                  {project.title}
-                </h4>
-
-                <p className="text-gray-400 leading-relaxed mb-6">
-                  {project.desc}
-                </p>
-
-                <div className="flex flex-wrap gap-2 mb-6">
-                  {project.tech.map((tech, i) => (
-                    <span
-                      key={i}
-                      className="px-3 py-1 rounded-full text-xs bg-white/10 border border-white/10 text-gray-300"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-
-                <button className="w-full py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500 hover:text-black transition font-semibold">
-                  View Project
-                </button>
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
-      {/* Contact */}
-      <section id="contact" className="max-w-5xl mx-auto px-6 py-24">
-        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-10 backdrop-blur-xl text-center">
-          <h3 className="text-5xl font-black mb-6">
-            Let’s Build Something Amazing
-          </h3>
-
-          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed mb-10">
-            Tertarik bekerja sama atau membuat project website modern?
-            Hubungi saya melalui GitHub atau media sosial.
-          </p>
-
-          <div className="flex flex-wrap justify-center gap-4">
-            <a
-              href="https://github.com"
-              target="_blank"
-              className="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold"
-            >
-              GitHub
-            </a>
-
-            <a
-              href="#"
-              className="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
-            >
-              Instagram
-            </a>
-          </div>
-        </div>
-      </section>
-
-      {/* Footer */}
-      <footer className="border-t border-white/10 py-8 text-center text-gray-500 text-sm">
-        © 2026 Faisal Al Aziz — Elegant Interactive Portfolio.
-      </footer>
+      <nav class="hidden md:flex gap-8 text-gray-300">
+        <a href="#about" class="hover:text-emerald-400 transition">About</a>
+        <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
+        <a href="#projects" class="hover:text-emerald-400 transition">Projects</a>
+        <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
+      </nav>
     </div>
-  );
-}
+  </header>
+
+  <!-- Hero -->
+  <section class="relative z-10 max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
+
+    <div>
+      <p class="text-emerald-400 uppercase tracking-[4px] text-sm mb-4">
+        Fullstack Developer
+      </p>
+
+      <h2 class="text-5xl md:text-7xl font-black leading-tight">
+        Elegant &
+        <span class="block bg-gradient-to-r from-emerald-400 to-cyan-400 text-transparent bg-clip-text">
+          Interactive
+        </span>
+        Portfolio
+      </h2>
+
+      <p class="text-gray-400 text-lg leading-relaxed mt-8 max-w-xl">
+        Saya membuat website modern dengan desain elegan,
+        performa cepat, dan pengalaman pengguna yang interaktif.
+      </p>
+
+      <div class="mt-10 flex flex-wrap gap-4">
+        <a href="#projects"
+          class="px-7 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold shadow-lg shadow-emerald-500/20">
+          Explore Projects
+        </a>
+
+        <a href="https://github.com" target="_blank"
+          class="px-7 py-3 rounded-2xl glass hover:bg-white/10 transition">
+          GitHub Profile
+        </a>
+      </div>
+    </div>
+
+    <!-- Hero Card -->
+    <div class="relative">
+      <div class="glass rounded-3xl p-6 shadow-2xl shadow-black/40">
+
+        <div class="flex gap-2 mb-6">
+          <div class="w-3 h-3 rounded-full bg-red-400"></div>
+          <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
+          <div class="w-3 h-3 rounded-full bg-green-400"></div>
+        </div>
+
+        <div class="font-mono text-sm space-y-4">
+          <div class="text-emerald-400">const developer = {</div>
+          <div class="pl-6 text-gray-300">name: 'Faisal Al Aziz',</div>
+          <div class="pl-6 text-gray-300">role: 'Fullstack Developer',</div>
+          <div class="pl-6 text-gray-300">focus: 'Elegant UI & Dashboard',</div>
+          <div class="pl-6 text-gray-300">status: 'Available for Project'</div>
+          <div class="text-emerald-400">}</div>
+        </div>
+      </div>
+
+      <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-4 animate-pulse">
+        <p class="text-sm text-gray-400">GitHub Activity</p>
+        <h3 class="text-2xl font-bold text-emerald-400">1,240+</h3>
+        <p class="text-xs text-gray-500">Contributions</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about" class="relative z-10 max-w-6xl mx-auto px-6 py-24">
+    <div class="glass rounded-3xl p-10">
+      <h3 class="text-4xl font-bold mb-8">About Me</h3>
+
+      <p class="text-gray-300 text-lg leading-relaxed">
+        Saya adalah pengembang web yang fokus pada pembuatan sistem informasi,
+        dashboard data, dan website modern dengan desain elegan.
+        Berpengalaman dalam pengolahan data, sistem pelaporan,
+        serta UI interaktif yang responsif.
+      </p>
+    </div>
+  </section>
+
+  <!-- Skills -->
+  <section id="skills" class="relative z-10 max-w-6xl mx-auto px-6 py-24">
+
+    <div class="flex items-center justify-between mb-12 flex-wrap gap-4">
+      <h3 class="text-4xl font-bold">Skills</h3>
+      <p class="text-gray-400">Technology & Tools</p>
+    </div>
+
+    <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
+
+      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">HTML</div>
+      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">CSS</div>
+      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">JavaScript</div>
+      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">PHP</div>
+      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">MySQL</div>
+
+    </div>
+  </section>
+
+  <!-- Projects -->
+  <section id="projects" class="relative z-10 max-w-7xl mx-auto px-6 py-24">
+
+    <div class="flex items-center justify-between mb-12 flex-wrap gap-4">
+      <h3 class="text-4xl font-bold">Featured Projects</h3>
+      <p class="text-gray-400">Selected Works</p>
+    </div>
+
+    <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+      <div class="glass rounded-3xl overflow-hidden card-hover shadow-xl">
+        <div class="h-52 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 flex items-center justify-center text-6xl font-black text-white/10">
+          01
+        </div>
+
+        <div class="p-6">
+          <h4 class="text-2xl font-bold mb-3 text-emerald-400">
+            Medical Reporting System
+          </h4>
+
+          <p class="text-gray-400 leading-relaxed mb-6">
+            Sistem informasi pelaporan 10 besar penyakit berbasis web dengan dashboard interaktif.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs glass">PHP</span>
+            <span class="px-3 py-1 rounded-full text-xs glass">MySQL</span>
+            <span class="px-3 py-1 rounded-full text-xs glass">Bootstrap</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass rounded-3xl overflow-hidden card-hover shadow-xl">
+        <div class="h-52 bg-gradient-to-br from-cyan-400/20 to-emerald-400/10 flex items-center justify-center text-6xl font-black text-white/10">
+          02
+        </div>
+
+        <div class="p-6">
+          <h4 class="text-2xl font-bold mb-3 text-cyan-400">
+            Specimen Tube Tracking
+          </h4>
+
+          <p class="text-gray-400 leading-relaxed mb-6">
+            Sistem tracking specimen laboratorium dengan monitoring data real-time.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs glass">JavaScript</span>
+            <span class="px-3 py-1 rounded-full text-xs glass">Spreadsheet</span>
+            <span class="px-3 py-1 rounded-full text-xs glass">API</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="glass rounded-3xl overflow-hidden card-hover shadow-xl">
+        <div class="h-52 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 flex items-center justify-center text-6xl font-black text-white/10">
+          03
+        </div>
+
+        <div class="p-6">
+          <h4 class="text-2xl font-bold mb-3 text-emerald-400">
+            Data Analytics Dashboard
+          </h4>
+
+          <p class="text-gray-400 leading-relaxed mb-6">
+            Dashboard analisis data dengan visualisasi modern dan performa optimal.
+          </p>
+
+          <div class="flex flex-wrap gap-2">
+            <span class="px-3 py-1 rounded-full text-xs glass">React</span>
+            <span class="px-3 py-1 rounded-full text-xs glass">Chart.js</span>
+            <span class="px-3 py-1 rounded-full text-xs glass">Tailwind</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- Contact -->
+  <section id="contact" class="relative z-10 max-w-5xl mx-auto px-6 py-24">
+    <div class="glass rounded-3xl p-10 text-center">
+
+      <h3 class="text-5xl font-black mb-6">
+        Let's Build Something Amazing
+      </h3>
+
+      <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+        Tertarik bekerja sama atau membuat project website modern?
+        Hubungi saya melalui GitHub atau media sosial.
+      </p>
+
+      <div class="flex flex-wrap justify-center gap-4">
+        <a href="https://github.com" target="_blank"
+          class="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold">
+          GitHub
+        </a>
+
+        <a href="#"
+          class="px-8 py-4 rounded-2xl glass hover:bg-white/10 transition">
+          Instagram
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="border-t border-white/10 py-8 text-center text-gray-500 text-sm relative z-10">
+    © 2026 Faisal Al Aziz — Elegant Interactive Portfolio.
+  </footer>
+
+</body>
+</html>
