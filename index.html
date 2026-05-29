@@ -1,29 +1,20 @@
-import { motion } from 'framer-motion';
-// Icon library removed to avoid CDN import issues
-
 export default function PortfolioWebsite() {
   const projects = [
     {
-      title: 'Sistem Informasi Pelaporan Penyakit',
-      desc: 'Sistem laporan penyakit dengan visualisasi data, export Excel, dan dashboard interaktif.',
+      title: 'Medical Reporting System',
+      desc: 'Sistem informasi pelaporan 10 besar penyakit berbasis web dengan dashboard interaktif.',
       tech: ['PHP', 'MySQL', 'Bootstrap'],
-      github: 'https://github.com/username/project-penyakit',
-      emoji: '📊'
     },
     {
-      title: 'Dashboard Monitoring Data',
-      desc: 'Dashboard modern realtime dengan statistik visual dan monitoring data laboratorium.',
-      tech: ['JavaScript', 'Chart.js', 'AJAX'],
-      github: 'https://github.com/username/dashboard-monitoring',
-      emoji: '⚡'
+      title: 'Specimen Tube Tracking',
+      desc: 'Sistem tracking specimen laboratorium dengan monitoring data real-time.',
+      tech: ['JavaScript', 'Spreadsheet', 'API'],
     },
     {
-      title: 'CSV Automation System',
-      desc: 'Upload dan otomatisasi pengolahan data CSV dengan klasifikasi otomatis.',
-      tech: ['PHP', 'MySQL', 'API'],
-      github: 'https://github.com/username/csv-automation',
-      emoji: '🚀'
-    }
+      title: 'Data Analytics Dashboard',
+      desc: 'Dashboard analisis data dengan visualisasi modern dan performa optimal.',
+      tech: ['React', 'Chart.js', 'Tailwind'],
+    },
   ];
 
   const skills = [
@@ -33,258 +24,213 @@ export default function PortfolioWebsite() {
     'React',
     'PHP',
     'MySQL',
+    'Bootstrap',
     'GitHub',
     'UI/UX',
-    'Responsive',
-    'Chart.js'
   ];
 
   return (
-    <div className="bg-[#050816] text-white overflow-hidden min-h-screen relative">
-      {/* Background Blur */}
-      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-cyan-500/20 blur-[120px] rounded-full" />
-      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-purple-500/20 blur-[120px] rounded-full" />
+    <div className="min-h-screen bg-[#0d1117] text-white overflow-hidden">
+      {/* Background Glow */}
+      <div className="absolute top-0 left-0 w-[500px] h-[500px] bg-emerald-500/20 blur-[140px] rounded-full"></div>
+      <div className="absolute bottom-0 right-0 w-[500px] h-[500px] bg-cyan-500/10 blur-[140px] rounded-full"></div>
 
       {/* Navbar */}
-      <nav className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-black/20">
-        <div className="max-w-7xl mx-auto px-6 md:px-12 py-5 flex items-center justify-between">
-          <motion.h1
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            className="text-2xl md:text-3xl font-black tracking-wide"
-          >
-            Faisal<span className="text-cyan-400">.dev</span>
-          </motion.h1>
-
-          <div className="hidden md:flex items-center gap-8 text-gray-300">
-            <a href="#about" className="hover:text-cyan-400 transition">About</a>
-            <a href="#skills" className="hover:text-cyan-400 transition">Skills</a>
-            <a href="#projects" className="hover:text-cyan-400 transition">Projects</a>
-            <a href="#contact" className="hover:text-cyan-400 transition">Contact</a>
-          </div>
-        </div>
-      </nav>
-
-      {/* Hero */}
-      <section className="relative max-w-7xl mx-auto px-6 md:px-12 pt-24 pb-28 grid md:grid-cols-2 gap-14 items-center">
-        <motion.div
-          initial={{ opacity: 0, x: -40 }}
-          animate={{ opacity: 1, x: 0 }}
-          transition={{ duration: 0.7 }}
-        >
-          <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full border border-cyan-400/20 bg-cyan-400/10 text-cyan-300 mb-7">
-            ✨ Modern Interactive Portfolio
-          </div>
-
-          <h1 className="text-5xl md:text-7xl font-black leading-tight mb-6">
-            Creative
-            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-cyan-400 to-blue-500">
-              Web Developer
-            </span>
+      <header className="sticky top-0 z-50 backdrop-blur-xl border-b border-white/10 bg-[#0d1117]/80">
+        <div className="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
+          <h1 className="text-2xl font-bold tracking-wide">
+            Faisal<span className="text-emerald-400">.dev</span>
           </h1>
 
-          <p className="text-lg text-gray-300 leading-relaxed max-w-xl mb-10">
-            Saya membangun website modern yang interaktif, responsive, dan tidak terasa kaku.
-            Fokus pada pengalaman pengguna, visual menarik, dan performa yang cepat.
+          <nav className="hidden md:flex gap-8 text-sm text-gray-300">
+            <a href="#about" className="hover:text-emerald-400 transition">About</a>
+            <a href="#skills" className="hover:text-emerald-400 transition">Skills</a>
+            <a href="#projects" className="hover:text-emerald-400 transition">Projects</a>
+            <a href="#contact" className="hover:text-emerald-400 transition">Contact</a>
+          </nav>
+        </div>
+      </header>
+
+      {/* Hero */}
+      <section className="relative max-w-7xl mx-auto px-6 py-24 md:py-32 grid md:grid-cols-2 gap-16 items-center">
+        <div>
+          <p className="text-emerald-400 mb-4 tracking-[4px] uppercase text-sm">
+            Web Developer
           </p>
 
-          <div className="flex flex-wrap gap-4">
-            <a
-              href="https://github.com/username"
-              target="_blank"
-              className="group px-7 py-4 rounded-2xl bg-cyan-400 text-black font-bold flex items-center gap-3 hover:scale-105 transition duration-300"
-            >
-              🐙
-              GitHub Profile
-              →
-            </a>
+          <h2 className="text-5xl md:text-7xl font-black leading-tight">
+            Elegant &
+            <span className="block text-transparent bg-clip-text bg-gradient-to-r from-emerald-400 to-cyan-400">
+              Interactive
+            </span>
+            Portfolio
+          </h2>
 
+          <p className="text-gray-400 mt-8 text-lg leading-relaxed max-w-xl">
+            Saya membuat website modern dengan tampilan elegan,
+            performa cepat, dan pengalaman pengguna yang interaktif.
+          </p>
+
+          <div className="mt-10 flex flex-wrap gap-4">
             <a
               href="#projects"
-              className="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:border-cyan-400 hover:bg-cyan-400/10 transition duration-300"
+              className="px-7 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold shadow-lg shadow-emerald-500/20"
             >
               Explore Projects
             </a>
-          </div>
-        </motion.div>
 
-        {/* Floating Card */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.9 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.8 }}
-          className="relative flex justify-center"
-        >
-          <motion.div
-            animate={{ y: [0, -12, 0] }}
-            transition={{ repeat: Infinity, duration: 5 }}
-            className="w-[350px] h-[350px] rounded-[40px] bg-gradient-to-br from-cyan-400 to-blue-600 p-[2px] shadow-[0_0_80px_rgba(34,211,238,0.25)]"
-          >
-            <div className="w-full h-full rounded-[38px] bg-[#0f172a]/95 backdrop-blur-xl flex flex-col items-center justify-center text-center p-10">
-              <div className="text-8xl mb-5">💻</div>
-
-              <h2 className="text-3xl font-black mb-3">
-                Fullstack Developer
-              </h2>
-
-              <p className="text-gray-400 leading-relaxed text-sm">
-                Interactive UI • Smooth Animation • Clean Code • Modern Design
-              </p>
-            </div>
-          </motion.div>
-        </motion.div>
-      </section>
-
-      {/* About */}
-      <section id="about" className="max-w-7xl mx-auto px-6 md:px-12 py-24">
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          viewport={{ once: true }}
-          className="bg-white/5 border border-white/10 rounded-[40px] p-10 md:p-14 backdrop-blur-xl"
-        >
-          <h2 className="text-4xl md:text-5xl font-black mb-8">
-            About <span className="text-cyan-400">Me</span>
-          </h2>
-
-          <p className="text-gray-300 text-lg leading-loose max-w-4xl">
-            Saya berfokus pada pengembangan website modern dengan tampilan yang hidup dan nyaman digunakan.
-            Mulai dari dashboard data, sistem informasi, visualisasi chart, automation CSV,
-            hingga website portfolio interaktif dengan animasi modern.
-          </p>
-        </motion.div>
-      </section>
-
-      {/* Skills */}
-      <section id="skills" className="max-w-7xl mx-auto px-6 md:px-12 py-10">
-        <div className="flex items-center justify-between mb-10 flex-wrap gap-4">
-          <h2 className="text-4xl md:text-5xl font-black">
-            My <span className="text-cyan-400">Skills</span>
-          </h2>
-
-          <div className="text-gray-400">
-            Interactive • Responsive • Professional
+            <a
+              href="https://github.com"
+              target="_blank"
+              className="px-7 py-3 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
+            >
+              GitHub Profile
+            </a>
           </div>
         </div>
 
-        <div className="grid grid-cols-2 md:grid-cols-5 gap-5">
+        {/* Hero Card */}
+        <div className="relative">
+          <div className="rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl p-6 shadow-2xl shadow-black/40">
+            <div className="flex items-center gap-2 mb-6">
+              <div className="w-3 h-3 rounded-full bg-red-400"></div>
+              <div className="w-3 h-3 rounded-full bg-yellow-400"></div>
+              <div className="w-3 h-3 rounded-full bg-green-400"></div>
+            </div>
+
+            <div className="space-y-4 font-mono text-sm">
+              <div className="text-emerald-400">const developer = &#123;</div>
+              <div className="pl-6 text-gray-300">name: 'Faisal Al Aziz',</div>
+              <div className="pl-6 text-gray-300">role: 'Fullstack Developer',</div>
+              <div className="pl-6 text-gray-300">focus: 'Elegant UI & Data System',</div>
+              <div className="pl-6 text-gray-300">status: 'Available for project'</div>
+              <div className="text-emerald-400">&#125;</div>
+            </div>
+          </div>
+
+          <div className="absolute -bottom-6 -left-6 bg-[#161b22] border border-white/10 rounded-2xl p-4 backdrop-blur-xl shadow-xl animate-pulse">
+            <p className="text-sm text-gray-400">GitHub Activity</p>
+            <h3 className="text-2xl font-bold text-emerald-400">1,240+</h3>
+            <p className="text-xs text-gray-500">Contributions</p>
+          </div>
+        </div>
+      </section>
+
+      {/* About */}
+      <section id="about" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="rounded-3xl border border-white/10 bg-white/5 p-10 backdrop-blur-xl">
+          <h3 className="text-4xl font-bold mb-8">About Me</h3>
+
+          <p className="text-gray-300 text-lg leading-relaxed">
+            Saya adalah pengembang web yang fokus pada pembuatan sistem
+            informasi, dashboard data, dan website modern dengan desain elegan.
+            Berpengalaman dalam pengolahan data, sistem pelaporan, serta UI
+            interaktif yang responsif di berbagai perangkat.
+          </p>
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section id="skills" className="max-w-6xl mx-auto px-6 py-24">
+        <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
+          <h3 className="text-4xl font-bold">Skills</h3>
+          <p className="text-gray-400">Technology & Tools</p>
+        </div>
+
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
           {skills.map((skill, index) => (
-            <motion.div
-              whileHover={{ scale: 1.08, rotate: -2 }}
+            <div
               key={index}
-              className="bg-white/5 border border-white/10 rounded-3xl p-6 text-center backdrop-blur-xl hover:border-cyan-400 transition duration-300"
+              className="group border border-white/10 bg-white/5 hover:bg-emerald-500/10 transition rounded-2xl p-6 text-center backdrop-blur-xl hover:-translate-y-2 duration-300"
             >
-              <div className="text-3xl mb-3">✨</div>
-              <p className="font-semibold">{skill}</p>
-            </motion.div>
+              <h4 className="font-semibold text-lg group-hover:text-emerald-400 transition">
+                {skill}
+              </h4>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Projects */}
-      <section id="projects" className="max-w-7xl mx-auto px-6 md:px-12 py-24">
-        <div className="flex items-center justify-between flex-wrap gap-5 mb-14">
-          <h2 className="text-4xl md:text-5xl font-black">
-            Featured <span className="text-cyan-400">Projects</span>
-          </h2>
-
-          <a
-            href="https://github.com/username"
-            target="_blank"
-            className="text-cyan-400 hover:translate-x-1 transition flex items-center gap-2"
-          >
-            View GitHub →
-          </a>
+      <section id="projects" className="max-w-7xl mx-auto px-6 py-24">
+        <div className="flex items-center justify-between mb-12 flex-wrap gap-4">
+          <h3 className="text-4xl font-bold">Featured Projects</h3>
+          <p className="text-gray-400">Selected Works</p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8">
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {projects.map((project, index) => (
-            <motion.div
+            <div
               key={index}
-              whileHover={{ y: -10 }}
-              className="group relative bg-white/5 border border-white/10 rounded-[32px] p-8 overflow-hidden backdrop-blur-xl hover:border-cyan-400 transition duration-300"
+              className="group rounded-3xl border border-white/10 bg-white/5 backdrop-blur-xl overflow-hidden hover:-translate-y-3 transition duration-300 shadow-xl"
             >
-              <div className="absolute inset-0 opacity-0 group-hover:opacity-100 bg-gradient-to-br from-cyan-400/10 to-blue-500/10 transition duration-500" />
+              <div className="h-52 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 flex items-center justify-center text-6xl font-black text-white/10">
+                0{index + 1}
+              </div>
 
-              <div className="relative z-10">
-                <div className="flex items-center justify-between mb-6">
-                  <div className="text-5xl">{project.emoji}</div>
-
-                  <a
-                    href={project.github}
-                    target="_blank"
-                    className="text-cyan-400 hover:underline"
-                  >
-                    GitHub
-                  </a>
-                </div>
-
-                <h3 className="text-2xl font-bold mb-4">
+              <div className="p-6">
+                <h4 className="text-2xl font-bold mb-3 group-hover:text-emerald-400 transition">
                   {project.title}
-                </h3>
+                </h4>
 
-                <p className="text-gray-300 leading-relaxed mb-6 text-sm">
+                <p className="text-gray-400 leading-relaxed mb-6">
                   {project.desc}
                 </p>
 
-                <div className="flex flex-wrap gap-2">
+                <div className="flex flex-wrap gap-2 mb-6">
                   {project.tech.map((tech, i) => (
                     <span
                       key={i}
-                      className="px-3 py-1 rounded-full text-xs bg-cyan-400/10 border border-cyan-400/20 text-cyan-300"
+                      className="px-3 py-1 rounded-full text-xs bg-white/10 border border-white/10 text-gray-300"
                     >
                       {tech}
                     </span>
                   ))}
                 </div>
+
+                <button className="w-full py-3 rounded-xl bg-emerald-500/10 border border-emerald-500/20 hover:bg-emerald-500 hover:text-black transition font-semibold">
+                  View Project
+                </button>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </section>
 
       {/* Contact */}
-      <section id="contact" className="max-w-5xl mx-auto px-6 md:px-12 pb-28">
-        <motion.div
-          whileHover={{ scale: 1.01 }}
-          className="relative overflow-hidden rounded-[40px] border border-white/10 bg-gradient-to-br from-cyan-500/10 to-blue-500/10 p-12 text-center backdrop-blur-xl"
-        >
-          <div className="absolute inset-0 bg-[radial-gradient(circle_at_top_right,rgba(34,211,238,0.2),transparent_40%)]" />
+      <section id="contact" className="max-w-5xl mx-auto px-6 py-24">
+        <div className="rounded-3xl border border-white/10 bg-gradient-to-br from-white/5 to-white/[0.02] p-10 backdrop-blur-xl text-center">
+          <h3 className="text-5xl font-black mb-6">
+            Let’s Build Something Amazing
+          </h3>
 
-          <div className="relative z-10">
-            <h2 className="text-4xl md:text-5xl font-black mb-6">
-              Let's Build Something Amazing
-            </h2>
+          <p className="text-gray-400 max-w-2xl mx-auto text-lg leading-relaxed mb-10">
+            Tertarik bekerja sama atau membuat project website modern?
+            Hubungi saya melalui GitHub atau media sosial.
+          </p>
 
-            <p className="text-gray-300 text-lg max-w-2xl mx-auto leading-relaxed mb-10">
-              Siap membantu membuat website modern, dashboard interaktif,
-              maupun sistem informasi berbasis web yang tampil profesional.
-            </p>
+          <div className="flex flex-wrap justify-center gap-4">
+            <a
+              href="https://github.com"
+              target="_blank"
+              className="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold"
+            >
+              GitHub
+            </a>
 
-            <div className="flex flex-wrap justify-center gap-5">
-              <a
-                href="mailto:yourmail@gmail.com"
-                className="px-7 py-4 rounded-2xl bg-cyan-400 text-black font-bold flex items-center gap-3 hover:scale-105 transition duration-300"
-              >
-                📧 Email Me
-              </a>
-
-              <a
-                href="https://github.com/username"
-                target="_blank"
-                className="px-7 py-4 rounded-2xl border border-white/10 bg-white/5 hover:border-cyan-400 transition duration-300 flex items-center gap-3"
-              >
-                🐙 GitHub
-              </a>
-            </div>
+            <a
+              href="#"
+              className="px-8 py-4 rounded-2xl border border-white/10 bg-white/5 hover:bg-white/10 transition"
+            >
+              Instagram
+            </a>
           </div>
-        </motion.div>
+        </div>
       </section>
 
       {/* Footer */}
       <footer className="border-t border-white/10 py-8 text-center text-gray-500 text-sm">
-        © 2026 Faisal Al Aziz — Interactive Developer Portfolio
+        © 2026 Faisal Al Aziz — Elegant Interactive Portfolio.
       </footer>
     </div>
   );
