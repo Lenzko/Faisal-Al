@@ -1,15 +1,15 @@
-```html
 <!DOCTYPE html>
 <html lang="id">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 
   <title>Faisal Al Aziz | Data Administration Portfolio</title>
 
   <script src="https://cdn.tailwindcss.com"></script>
 
   <style>
+
     html{
       scroll-behavior:smooth;
     }
@@ -21,45 +21,46 @@
     }
 
     body{
-      background:#0d1117;
+      background:
+      radial-gradient(circle at top left,
+      rgba(59,130,246,0.18),
+      transparent 28%),
+
+      radial-gradient(circle at bottom right,
+      rgba(168,85,247,0.15),
+      transparent 28%),
+
+      #070b14;
+
       overflow-x:hidden;
       font-family:Arial,sans-serif;
+      color:white;
       cursor:none;
     }
 
-    .cursor{
-      width:18px;
-      height:18px;
-      border:2px solid #34d399;
-      border-radius:50%;
-      position:fixed;
-      pointer-events:none;
-      transform:translate(-50%,-50%);
-      z-index:9999;
-      transition:transform .08s ease;
-      box-shadow:0 0 25px #34d399;
-    }
-
-    .cursor-dot{
-      width:5px;
-      height:5px;
-      background:#34d399;
-      border-radius:50%;
-      position:fixed;
-      pointer-events:none;
-      transform:translate(-50%,-50%);
-      z-index:9999;
-    }
-
+    /* GRID BACKGROUND */
     body::before{
       content:'';
+
       position:fixed;
       inset:0;
+
       background-image:
-      linear-gradient(rgba(255,255,255,0.03) 1px, transparent 1px),
-      linear-gradient(90deg, rgba(255,255,255,0.03) 1px, transparent 1px);
+      linear-gradient(
+        rgba(255,255,255,0.025) 1px,
+        transparent 1px
+      ),
+
+      linear-gradient(
+        90deg,
+        rgba(255,255,255,0.025) 1px,
+        transparent 1px
+      );
+
       background-size:40px 40px;
+
       z-index:-2;
+
       animation:gridMove 20s linear infinite;
     }
 
@@ -67,18 +68,25 @@
       from{
         transform:translateY(0px);
       }
+
       to{
         transform:translateY(40px);
       }
     }
 
+    /* GLOW */
     .glow{
       position:absolute;
-      width:500px;
-      height:500px;
+
+      width:550px;
+      height:550px;
+
       border-radius:9999px;
+
       filter:blur(120px);
+
       z-index:0;
+
       animation:floating 8s ease-in-out infinite;
     }
 
@@ -86,32 +94,150 @@
       0%,100%{
         transform:translateY(0px);
       }
+
       50%{
         transform:translateY(-30px);
       }
     }
 
+    /* GLASS */
     .glass{
-      background:rgba(255,255,255,0.05);
-      backdrop-filter:blur(20px);
+      background:rgba(255,255,255,0.06);
+
+      backdrop-filter:blur(22px);
+
       border:1px solid rgba(255,255,255,0.08);
+
+      box-shadow:
+      0 8px 32px rgba(0,0,0,0.35);
     }
 
+    /* NAVBAR */
+    header{
+      background:rgba(7,11,20,0.72) !important;
+
+      backdrop-filter:blur(20px);
+    }
+
+    /* CURSOR */
+    .cursor{
+      width:18px;
+      height:18px;
+
+      border:2px solid #60a5fa;
+
+      border-radius:50%;
+
+      position:fixed;
+
+      pointer-events:none;
+
+      transform:translate(-50%,-50%);
+
+      z-index:9999;
+
+      transition:transform .08s ease;
+
+      box-shadow:
+      0 0 25px #60a5fa;
+    }
+
+    .cursor-dot{
+      width:5px;
+      height:5px;
+
+      background:#22d3ee;
+
+      border-radius:50%;
+
+      position:fixed;
+
+      pointer-events:none;
+
+      transform:translate(-50%,-50%);
+
+      z-index:9999;
+    }
+
+    /* HERO TITLE */
+    .gradient-text{
+      background:
+      linear-gradient(
+        90deg,
+        #60a5fa,
+        #22d3ee,
+        #a78bfa
+      );
+
+      -webkit-background-clip:text;
+      -webkit-text-fill-color:transparent;
+    }
+
+    /* BUTTON */
+    .btn-primary{
+      background:
+      linear-gradient(
+        135deg,
+        #3b82f6,
+        #06b6d4
+      );
+
+      color:white;
+
+      box-shadow:
+      0 10px 30px rgba(59,130,246,0.35);
+
+      transition:0.3s ease;
+    }
+
+    .btn-primary:hover{
+      transform:translateY(-3px);
+
+      box-shadow:
+      0 18px 40px rgba(59,130,246,0.45);
+    }
+
+    .btn-secondary{
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      transition:0.3s ease;
+    }
+
+    .btn-secondary:hover{
+      background:rgba(255,255,255,0.1);
+    }
+
+    /* CARD */
     .card-hover{
       transition:0.4s ease;
+
       position:relative;
+
       overflow:hidden;
     }
 
     .card-hover::before{
       content:'';
+
       position:absolute;
-      width:300px;
-      height:300px;
-      background:radial-gradient(circle, rgba(52,211,153,0.18), transparent 70%);
-      top:-150px;
-      left:-150px;
+
+      width:350px;
+      height:350px;
+
+      background:
+      radial-gradient(
+        circle,
+        rgba(96,165,250,0.22),
+        transparent 70%
+      );
+
+      top:-180px;
+      left:-180px;
+
       opacity:0;
+
       transition:.5s;
     }
 
@@ -120,10 +246,15 @@
     }
 
     .card-hover:hover{
-      transform:translateY(-15px) scale(1.02);
-      box-shadow:0 30px 60px rgba(0,0,0,0.4);
+      transform:
+      translateY(-15px)
+      scale(1.02);
+
+      box-shadow:
+      0 30px 60px rgba(0,0,0,0.45);
     }
 
+    /* SHINE */
     .shine{
       position:relative;
       overflow:hidden;
@@ -131,18 +262,25 @@
 
     .shine::after{
       content:'';
+
       position:absolute;
+
       top:0;
       left:-120%;
+
       width:80%;
       height:100%;
-      background:linear-gradient(
+
+      background:
+      linear-gradient(
         90deg,
         transparent,
-        rgba(255,255,255,0.3),
+        rgba(255,255,255,0.25),
         transparent
       );
+
       transform:skewX(-20deg);
+
       animation:shine 4s infinite;
     }
 
@@ -152,11 +290,16 @@
       }
     }
 
+    /* TYPING */
     .typing{
-      border-right:3px solid #34d399;
+      border-right:3px solid #60a5fa;
+
       white-space:nowrap;
+
       overflow:hidden;
+
       width:0;
+
       animation:
       typing 4s steps(30,end) forwards,
       blink .7s infinite;
@@ -174,9 +317,12 @@
       }
     }
 
+    /* ANIMATION */
     .fade-up{
       opacity:0;
+
       transform:translateY(40px);
+
       animation:fadeUp 1s ease forwards;
     }
 
@@ -186,66 +332,123 @@
         transform:translateY(0);
       }
     }
+
+    /* SKILL BOX */
+    .skill-box{
+      transition:0.3s ease;
+    }
+
+    .skill-box:hover{
+      transform:translateY(-8px);
+
+      background:rgba(255,255,255,0.08);
+    }
+
+    /* BADGE */
+    .badge{
+      background:rgba(255,255,255,0.05);
+
+      border:1px solid rgba(255,255,255,0.08);
+
+      color:#dbeafe;
+    }
+
+    .subtitle{
+      color:#94a3b8;
+    }
+
+    .section-title{
+      color:#f8fafc;
+    }
+
+    footer{
+      color:#94a3b8;
+    }
+
   </style>
 </head>
 
-<body class="text-white relative min-h-screen">
+<body class="relative min-h-screen">
 
+  <!-- Cursor -->
   <div class="cursor"></div>
   <div class="cursor-dot"></div>
 
-  <!-- Background -->
-  <div class="glow bg-emerald-500/20 top-0 left-0"></div>
-  <div class="glow bg-cyan-500/10 bottom-0 right-0"></div>
+  <!-- Background Glow -->
+  <div class="glow bg-blue-500/20 top-0 left-0"></div>
+  <div class="glow bg-purple-500/20 bottom-0 right-0"></div>
 
   <!-- Navbar -->
-  <header class="sticky top-0 z-50 border-b border-white/10 backdrop-blur-xl bg-[#0d1117]/80">
+  <header class="sticky top-0 z-50 border-b border-white/10">
+
     <div class="max-w-7xl mx-auto px-6 py-4 flex items-center justify-between">
 
       <h1 class="text-3xl font-bold">
-        Faisal<span class="text-emerald-400">.data</span>
+        Faisal<span class="text-cyan-300">.data</span>
       </h1>
 
       <nav class="hidden md:flex gap-8 text-gray-300">
-        <a href="#about" class="hover:text-emerald-400 transition">About</a>
-        <a href="#skills" class="hover:text-emerald-400 transition">Skills</a>
-        <a href="#projects" class="hover:text-emerald-400 transition">Projects</a>
-        <a href="#contact" class="hover:text-emerald-400 transition">Contact</a>
+
+        <a href="#about" class="hover:text-cyan-300 transition">
+          About
+        </a>
+
+        <a href="#skills" class="hover:text-cyan-300 transition">
+          Skills
+        </a>
+
+        <a href="#projects" class="hover:text-cyan-300 transition">
+          Projects
+        </a>
+
+        <a href="#contact" class="hover:text-cyan-300 transition">
+          Contact
+        </a>
+
       </nav>
 
     </div>
+
   </header>
 
-  <!-- Hero -->
+  <!-- HERO -->
   <section class="relative z-10 max-w-7xl mx-auto px-6 py-28 grid md:grid-cols-2 gap-16 items-center">
 
     <div>
 
-      <p class="text-emerald-400 uppercase tracking-[4px] text-sm mb-4">
+      <p class="text-cyan-300 uppercase tracking-[4px] text-sm mb-4">
         Data Administration & Data Management
       </p>
 
       <h2 class="text-5xl md:text-7xl font-black leading-tight fade-up">
-        Data Management &
-        <span class="block bg-gradient-to-r from-emerald-400 to-cyan-400 text-transparent bg-clip-text">
-          Reporting ✨
+
+        Reporting &
+        <span class="block gradient-text">
+          Data Management ✨
         </span>
+
       </h2>
 
       <p class="text-gray-400 text-lg leading-relaxed mt-8 max-w-xl typing">
-        Berfokus pada pengolahan data, administrasi digital,
-        pelaporan, serta manajemen informasi yang terstruktur dan efisien.
+
+        Berfokus pada pengolahan data,
+        administrasi digital,
+        reporting,
+        dan pengelolaan informasi yang
+        terstruktur serta efisien.
+
       </p>
 
       <div class="mt-10 flex flex-wrap gap-4">
 
         <a href="#projects"
-        class="px-7 py-3 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold shadow-lg shadow-emerald-500/20">
+        class="btn-primary px-7 py-3 rounded-2xl font-semibold">
           Explore Projects
         </a>
 
-        <a href="https://github.com" target="_blank"
-        class="px-7 py-3 rounded-2xl glass hover:bg-white/10 transition">
+        <a href="https://github.com"
+        target="_blank"
+        class="btn-secondary px-7 py-3 rounded-2xl">
           GitHub Profile
         </a>
 
@@ -253,20 +456,22 @@
 
     </div>
 
-    <!-- Hero Card -->
+    <!-- HERO CARD -->
     <div class="relative">
 
       <div class="glass rounded-3xl p-6 shadow-2xl shadow-black/40 shine">
 
         <div class="flex gap-2 mb-6">
+
           <div class="w-3 h-3 rounded-full bg-red-400"></div>
           <div class="w-3 h-3 rounded-full bg-yellow-400"></div>
           <div class="w-3 h-3 rounded-full bg-green-400"></div>
+
         </div>
 
         <div class="font-mono text-sm space-y-4">
 
-          <div class="text-emerald-400">
+          <div class="text-cyan-300">
             const profile = {
           </div>
 
@@ -275,18 +480,18 @@
           </div>
 
           <div class="pl-6 text-gray-300">
-            role: 'Data Administration & Data Management',
+            role: 'Data Administration',
           </div>
 
           <div class="pl-6 text-gray-300">
-            focus: 'Reporting, Data Processing & Information Management',
+            focus: 'Reporting & Data Management',
           </div>
 
           <div class="pl-6 text-gray-300">
             status: 'Open for Opportunity'
           </div>
 
-          <div class="text-emerald-400">
+          <div class="text-cyan-300">
             }
           </div>
 
@@ -294,62 +499,52 @@
 
       </div>
 
-      <div class="absolute -bottom-6 -left-6 glass rounded-2xl p-4 animate-pulse">
-
-        <p class="text-sm text-gray-400">
-          Data Experience
-        </p>
-
-        <h3 class="text-2xl font-bold text-emerald-400">
-          Reporting & Management
-        </h3>
-
-        <p class="text-xs text-gray-500">
-          Structured Data Workflow
-        </p>
-
-      </div>
-
     </div>
 
   </section>
 
-  <!-- About -->
-  <section id="about" class="relative z-10 max-w-6xl mx-auto px-6 py-24">
+  <!-- ABOUT -->
+  <section id="about"
+  class="relative z-10 max-w-6xl mx-auto px-6 py-24">
 
     <div class="glass rounded-3xl p-10">
 
-      <h3 class="text-4xl font-bold mb-8">
+      <h3 class="text-4xl font-bold mb-8 section-title">
         About Me
       </h3>
 
       <p class="text-gray-300 text-lg leading-relaxed">
+
         Saya memiliki ketertarikan dalam bidang
         Data Administration dan Data Management,
         dengan pengalaman dalam pengolahan data,
-        penyusunan laporan, pengelolaan database,
+        penyusunan laporan,
+        pengelolaan database,
         serta administrasi digital.
 
         Terbiasa bekerja dengan data terstruktur,
-        spreadsheet, sistem pelaporan,
+        spreadsheet,
+        sistem pelaporan,
         dan pengorganisasian informasi
         untuk mendukung efisiensi operasional.
+
       </p>
 
     </div>
 
   </section>
 
-  <!-- Skills -->
-  <section id="skills" class="relative z-10 max-w-6xl mx-auto px-6 py-24">
+  <!-- SKILLS -->
+  <section id="skills"
+  class="relative z-10 max-w-6xl mx-auto px-6 py-24">
 
     <div class="flex items-center justify-between mb-12 flex-wrap gap-4">
 
-      <h3 class="text-4xl font-bold">
+      <h3 class="text-4xl font-bold section-title">
         Skills
       </h3>
 
-      <p class="text-gray-400">
+      <p class="subtitle">
         Data & Reporting
       </p>
 
@@ -357,43 +552,43 @@
 
     <div class="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-5">
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Data Processing
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Spreadsheet
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Database Management
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Reporting
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Data Administration
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Microsoft Excel
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         CSV Processing
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
-        MySQL
-      </div>
-
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Documentation
       </div>
 
-      <div class="glass rounded-2xl p-6 text-center hover:-translate-y-2 transition duration-300">
+      <div class="glass skill-box rounded-2xl p-6 text-center">
+        Information Management
+      </div>
+
+      <div class="glass skill-box rounded-2xl p-6 text-center">
         Data Reporting
       </div>
 
@@ -401,16 +596,17 @@
 
   </section>
 
-  <!-- Projects -->
-  <section id="projects" class="relative z-10 max-w-7xl mx-auto px-6 py-24">
+  <!-- PROJECTS -->
+  <section id="projects"
+  class="relative z-10 max-w-7xl mx-auto px-6 py-24">
 
     <div class="flex items-center justify-between mb-12 flex-wrap gap-4">
 
-      <h3 class="text-4xl font-bold">
+      <h3 class="text-4xl font-bold section-title">
         Featured Projects
       </h3>
 
-      <p class="text-gray-400">
+      <p class="subtitle">
         Selected Works
       </p>
 
@@ -418,35 +614,38 @@
 
     <div class="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
 
-      <!-- Project 1 -->
+      <!-- CARD 1 -->
       <div class="glass rounded-3xl overflow-hidden card-hover shadow-xl">
 
-        <div class="h-52 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 flex items-center justify-center text-6xl font-black text-white/10">
+        <div class="h-52 bg-gradient-to-br from-blue-500/20 to-cyan-500/10 flex items-center justify-center text-6xl font-black text-white/10">
           01
         </div>
 
         <div class="p-6">
 
-          <h4 class="text-2xl font-bold mb-3 text-emerald-400">
+          <h4 class="text-2xl font-bold mb-3 text-cyan-300">
             Disease Reporting Management
           </h4>
 
           <p class="text-gray-400 leading-relaxed mb-6">
-            Pengelolaan dan pelaporan data 10 besar penyakit
-            dengan rekap otomatis berdasarkan periode tertentu.
+
+            Pengelolaan dan pelaporan data
+            10 besar penyakit dengan rekap otomatis
+            berdasarkan periode tertentu.
+
           </p>
 
           <div class="flex flex-wrap gap-2">
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Reporting
             </span>
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Database
             </span>
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Data Management
             </span>
 
@@ -456,35 +655,37 @@
 
       </div>
 
-      <!-- Project 2 -->
+      <!-- CARD 2 -->
       <div class="glass rounded-3xl overflow-hidden card-hover shadow-xl">
 
-        <div class="h-52 bg-gradient-to-br from-cyan-400/20 to-emerald-400/10 flex items-center justify-center text-6xl font-black text-white/10">
+        <div class="h-52 bg-gradient-to-br from-purple-500/20 to-cyan-500/10 flex items-center justify-center text-6xl font-black text-white/10">
           02
         </div>
 
         <div class="p-6">
 
-          <h4 class="text-2xl font-bold mb-3 text-cyan-400">
+          <h4 class="text-2xl font-bold mb-3 text-cyan-300">
             Laboratory Data Tracking
           </h4>
 
           <p class="text-gray-400 leading-relaxed mb-6">
+
             Pengelolaan data specimen laboratorium
             dengan monitoring dan pencatatan data terstruktur.
+
           </p>
 
           <div class="flex flex-wrap gap-2">
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Spreadsheet
             </span>
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Documentation
             </span>
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Monitoring
             </span>
 
@@ -494,35 +695,37 @@
 
       </div>
 
-      <!-- Project 3 -->
+      <!-- CARD 3 -->
       <div class="glass rounded-3xl overflow-hidden card-hover shadow-xl">
 
-        <div class="h-52 bg-gradient-to-br from-emerald-400/20 to-cyan-400/10 flex items-center justify-center text-6xl font-black text-white/10">
+        <div class="h-52 bg-gradient-to-br from-cyan-500/20 to-blue-500/10 flex items-center justify-center text-6xl font-black text-white/10">
           03
         </div>
 
         <div class="p-6">
 
-          <h4 class="text-2xl font-bold mb-3 text-emerald-400">
+          <h4 class="text-2xl font-bold mb-3 text-cyan-300">
             Operational Data Reporting
           </h4>
 
           <p class="text-gray-400 leading-relaxed mb-6">
+
             Sistem pelaporan operasional dengan visualisasi data
             untuk membantu monitoring dan pengambilan informasi.
+
           </p>
 
           <div class="flex flex-wrap gap-2">
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Dashboard
             </span>
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Reporting
             </span>
 
-            <span class="px-3 py-1 rounded-full text-xs glass">
+            <span class="badge px-3 py-1 rounded-full text-xs">
               Data Visualization
             </span>
 
@@ -536,31 +739,45 @@
 
   </section>
 
-  <!-- Contact -->
-  <section id="contact" class="relative z-10 max-w-5xl mx-auto px-6 py-24">
+  <!-- CONTACT -->
+  <section id="contact"
+  class="relative z-10 max-w-5xl mx-auto px-6 py-24">
 
     <div class="glass rounded-3xl p-10 text-center">
 
       <h3 class="text-5xl font-black mb-6">
-        Let's Work With Data Efficiently
+
+        Let's Work With
+        <span class="gradient-text">
+          Data Efficiently
+        </span>
+
       </h3>
 
       <p class="text-gray-400 text-lg leading-relaxed max-w-2xl mx-auto mb-10">
+
         Terbuka untuk peluang kerja dan kolaborasi
         dalam bidang Data Administration,
-        Data Management, dan Reporting.
+        Data Management,
+        dan Reporting.
+
       </p>
 
       <div class="flex flex-wrap justify-center gap-4">
 
-        <a href="https://github.com" target="_blank"
-        class="px-8 py-4 rounded-2xl bg-emerald-500 hover:bg-emerald-400 transition text-black font-semibold">
+        <a href="https://github.com"
+        target="_blank"
+        class="btn-primary px-8 py-4 rounded-2xl font-semibold">
+
           GitHub
+
         </a>
 
         <a href="#"
-        class="px-8 py-4 rounded-2xl glass hover:bg-white/10 transition">
+        class="btn-secondary px-8 py-4 rounded-2xl">
+
           Instagram
+
         </a>
 
       </div>
@@ -569,20 +786,21 @@
 
   </section>
 
-  <!-- Footer -->
-  <footer class="border-t border-white/10 py-8 text-center text-gray-500 text-sm relative z-10">
+  <!-- FOOTER -->
+  <footer class="border-t border-white/10 py-8 text-center text-sm relative z-10">
 
     © 2026 Faisal Al Aziz —
     Data Administration & Data Management Portfolio.
 
   </footer>
 
+  <!-- SCRIPT -->
   <script>
 
     const cursor = document.querySelector('.cursor');
     const dot = document.querySelector('.cursor-dot');
 
-    document.addEventListener('mousemove', (e) => {
+    document.addEventListener('mousemove', (e)=>{
 
       cursor.style.left = e.clientX + 'px';
       cursor.style.top = e.clientY + 'px';
@@ -594,9 +812,9 @@
 
     const cards = document.querySelectorAll('.card-hover');
 
-    cards.forEach(card => {
+    cards.forEach(card=>{
 
-      card.addEventListener('mousemove', (e) => {
+      card.addEventListener('mousemove',(e)=>{
 
         const rect = card.getBoundingClientRect();
 
@@ -611,7 +829,7 @@
 
       });
 
-      card.addEventListener('mouseleave', () => {
+      card.addEventListener('mouseleave',()=>{
 
         card.style.transform =
         'perspective(1000px) rotateX(0) rotateY(0) scale(1)';
@@ -624,4 +842,3 @@
 
 </body>
 </html>
-```
