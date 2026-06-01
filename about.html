@@ -116,7 +116,39 @@ header{
     color:#222;
     margin-bottom:10px;
 }
+/* FLOATING HOME */
 
+.floating-home{
+    position:fixed;
+    right:30px;
+    bottom:30px;
+
+    width:65px;
+    height:65px;
+
+    background:#EFB32E;
+    color:white;
+
+    border-radius:50%;
+
+    display:flex;
+    justify-content:center;
+    align-items:center;
+
+    text-decoration:none;
+
+    box-shadow:
+    0 10px 25px rgba(239,179,46,.35);
+
+    transition:.3s;
+
+    z-index:999;
+}
+
+.floating-home:hover{
+    transform:translateY(-5px) scale(1.05);
+    background:#D89E1D;
+}
 .title{
     font-size:76px;
     line-height:1;
@@ -303,7 +335,78 @@ header{
 .card-info{
     display:none;
 }
+/* MENU */
 
+.menu-dropdown{
+    position:relative;
+}
+
+.menu-btn{
+    width:50px;
+    height:50px;
+    background:transparent;
+    border:none;
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+}
+
+.menu-btn span{
+    width:30px;
+    height:3px;
+    background:#D89E1D;
+    border-radius:10px;
+    transition:.3s;
+}
+
+.dropdown-content{
+    position:absolute;
+    right:0;
+    top:65px;
+    min-width:250px;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    display:none;
+
+    box-shadow:
+    0 20px 40px rgba(216,158,29,.12);
+}
+
+.dropdown-content.show{
+    display:block;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:16px 22px;
+    text-decoration:none;
+    color:#444;
+    font-weight:500;
+    transition:.3s;
+}
+
+.dropdown-content a:hover{
+    background:#FFF8E8;
+    color:#D89E1D;
+    padding-left:28px;
+}
+
+.menu-btn.active span:nth-child(1){
+    transform:translateY(9px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+    transform:translateY(-9px) rotate(-45deg);
+}
 .logo-text{
     font-size:20px;
 }
@@ -323,9 +426,26 @@ header{
 <div class="logo-text">Faisal Al Aziz</div>
 </div>
 
-<a href="index.html" class="back-btn">
-← Kembali
-</a>
+<div class="menu-dropdown">
+
+<button class="menu-btn" onclick="toggleMenu()">
+    <span></span>
+    <span></span>
+    <span></span>
+</button>
+
+<div class="dropdown-content" id="dropdownMenu">
+
+<a href="index.html">Beranda</a>
+<a href="about.html">Tentang Saya</a>
+<a href="#">Keahlian</a>
+<a href="#">Proyek</a>
+<a href="#">Kontak</a>
+<a href="#">CV Saya</a>
+
+</div>
+
+</div>
 
 </div>
 
@@ -424,6 +544,50 @@ class="profile-img">
 </div>
 
 </section>
+<a href="index.html" class="floating-home">
 
+<svg xmlns="http://www.w3.org/2000/svg"
+width="26"
+height="26"
+fill="currentColor"
+viewBox="0 0 16 16">
+
+<path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 2 8h1v5a1 1 0 0 0 1 1h3V10h2v4h3a1 1 0 0 0 1-1V8h1a.5.5 0 0 0 .354-.854z"/>
+
+</svg>
+
+</a>
+    <script>
+
+function toggleMenu(){
+
+    const menuBtn =
+    document.querySelector(".menu-btn");
+
+    const dropdown =
+    document.getElementById("dropdownMenu");
+
+    menuBtn.classList.toggle("active");
+    dropdown.classList.toggle("show");
+}
+
+document.addEventListener("click", function(e){
+
+    const menuBtn =
+    document.querySelector(".menu-btn");
+
+    const dropdown =
+    document.getElementById("dropdownMenu");
+
+    if(
+        !menuBtn.contains(e.target) &&
+        !dropdown.contains(e.target)
+    ){
+        menuBtn.classList.remove("active");
+        dropdown.classList.remove("show");
+    }
+});
+
+</script>
 </body>
 </html>
