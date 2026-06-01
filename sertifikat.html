@@ -9,7 +9,45 @@
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 
 <style>
+    .slide-track{
+    position:relative;
+    height:100%;
+}
 
+.preview{
+    position:absolute;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+}
+.preview.left{
+    transform:
+    translate(-170%,-50%)
+    scale(.85);
+
+    opacity:.35;
+}
+
+.preview.right{
+    transform:
+    translate(70%,-50%)
+    scale(.85);
+
+    opacity:.35;
+}
+
+.preview.active{
+    transform:
+    translate(-50%,-50%)
+    scale(1.15);
+
+    opacity:1;
+
+    z-index:5;
+
+    box-shadow:
+    0 20px 40px rgba(0,0,0,.15);
+}
 *{
     margin:0;
     padding:0;
@@ -183,10 +221,8 @@ header{
 /* ================= SLIDER ================= */
 
 .slider{
-    margin-top:50px;
-    position:relative;
-    height:340px;
-    overflow:hidden;
+    height:500px;
+    margin-top:60px;
 }
 
 .slide-track{
@@ -197,13 +233,15 @@ header{
 }
 
 .preview{
-    width:260px;
-    height:180px;
-    border-radius:20px;
+    width:420px;
+    height:280px;
+    border-radius:25px;
     overflow:hidden;
-    opacity:.45;
-    transform:scale(.9);
-    transition:.5s;
+
+    opacity:.4;
+    transform:scale(.85);
+
+    transition:.8s ease;
 }
 
 .preview img{
@@ -214,8 +252,7 @@ header{
 
 .preview.active{
     opacity:1;
-    transform:scale(1.1);
-    box-shadow:0 15px 35px rgba(0,0,0,.15);
+    transform:scale(1.15);
 }
 
 /* ================= CERTIFICATE LIST ================= */
@@ -339,24 +376,23 @@ Sertifikat <span>Saya</span>
 
 <div class="slider">
 
-<div class="slide-track">
+    <div class="slide-track">
 
-<div class="preview">
-<img src="s1.jpg">
+        <div class="preview">
+            <img src="s1.jpg">
+        </div>
+
+        <div class="preview active">
+            <img src="s2.jpg">
+        </div>
+
+        <div class="preview">
+            <img src="s3.jpg">
+        </div>
+
+    </div>
+
 </div>
-
-<div class="preview active">
-<img src="s2.jpg">
-</div>
-
-<div class="preview">
-<img src="s3.jpg">
-</div>
-
-</div>
-
-</div>
-
 <!-- Daftar Sertifikat -->
 
 <div class="certificates">
@@ -453,7 +489,58 @@ Sertifikat <span>Saya</span>
 
 </div>
 </section>
+<script>
 
+const slides =
+document.querySelectorAll(".preview");
+
+let current = 1;
+
+function updateSlider(){
+
+    slides.forEach(slide=>{
+
+        slide.classList.remove(
+            "active",
+            "left",
+            "right"
+        );
+
+    });
+
+    const left =
+    (current - 1 + slides.length)
+    % slides.length;
+
+    const right =
+    (current + 1)
+    % slides.length;
+
+    slides[current]
+    .classList.add("active");
+
+    slides[left]
+    .classList.add("left");
+
+    slides[right]
+    .classList.add("right");
+}
+
+updateSlider();
+
+setInterval(()=>{
+
+    current++;
+
+    if(current >= slides.length){
+        current = 0;
+    }
+
+    updateSlider();
+
+},3000);
+
+</script>
 <script>
 
 const menuBtn = document.querySelector(".menu-btn");
