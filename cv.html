@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CV Saya | Faisal Al Aziz</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Inter',sans-serif;
+}
+
+body{
+    background:#F8F5ED;
+    overflow-x:hidden;
+}
+
+/* HEADER */
+
+header{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:85px;
+    background:white;
+    box-shadow:0 2px 15px rgba(0,0,0,.05);
+    z-index:1000;
+}
+
+.navbar{
+    max-width:1400px;
+    height:100%;
+    margin:auto;
+    padding:0 40px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo{
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.logo-circle{
+    width:52px;
+    height:52px;
+    border-radius:50%;
+    background:linear-gradient(
+        135deg,
+        #f9e38c,
+        #d79b16,
+        #fff4c0
+    );
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:white;
+    font-size:28px;
+    font-weight:800;
+}
+
+.logo-text{
+    font-size:26px;
+    font-weight:700;
+    color:#D89E1D;
+}
+
+/* BURGER */
+
+.menu-dropdown{
+    position:relative;
+}
+
+.menu-btn{
+    width:50px;
+    height:50px;
+    border:none;
+    background:transparent;
+    cursor:pointer;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    gap:6px;
+}
+
+.menu-btn span{
+    width:30px;
+    height:3px;
+    background:#D89E1D;
+    border-radius:10px;
+    transition:.35s;
+}
+
+.menu-btn.active span:nth-child(1){
+    transform:translateY(9px) rotate(45deg);
+}
+
+.menu-btn.active span:nth-child(2){
+    opacity:0;
+}
+
+.menu-btn.active span:nth-child(3){
+    transform:translateY(-9px) rotate(-45deg);
+}
+
+.dropdown-content{
+    position:absolute;
+    right:0;
+    top:65px;
+    min-width:250px;
+    background:white;
+    border-radius:18px;
+    overflow:hidden;
+    display:none;
+    box-shadow:0 20px 40px rgba(216,158,29,.12);
+}
+
+.dropdown-content.show{
+    display:block;
+}
+
+.dropdown-content a{
+    display:block;
+    padding:16px 22px;
+    text-decoration:none;
+    color:#444;
+    transition:.3s;
+}
+
+.dropdown-content a:hover{
+    background:#FFF8E8;
+    color:#D89E1D;
+}
+
+/* PAGE */
+
+.page{
+    max-width:1300px;
+    margin:auto;
+    padding:130px 30px 80px;
+}
+
+.page-title{
+    text-align:center;
+    font-size:58px;
+    font-weight:800;
+    color:#222;
+}
+
+.page-title span{
+    color:#EFB32E;
+}
+
+.page-desc{
+    text-align:center;
+    margin-top:15px;
+    color:#666;
+    font-size:18px;
+}
+
+.cv-wrapper{
+    margin-top:50px;
+    background:white;
+    border-radius:25px;
+    padding:20px;
+    box-shadow:0 15px 35px rgba(0,0,0,.08);
+}
+
+.cv-frame{
+    width:100%;
+    height:900px;
+    border:none;
+    border-radius:15px;
+}
+
+.cv-actions{
+    margin-top:30px;
+    text-align:center;
+}
+
+.download-btn{
+    display:inline-block;
+    padding:18px 35px;
+    border-radius:50px;
+    background:#EFB32E;
+    color:white;
+    text-decoration:none;
+    font-weight:700;
+    transition:.3s;
+    box-shadow:0 10px 25px rgba(239,179,46,.3);
+}
+
+.download-btn:hover{
+    transform:translateY(-4px);
+}
+
+@media(max-width:768px){
+
+.logo-text{
+    font-size:20px;
+}
+
+.page-title{
+    font-size:38px;
+}
+
+.cv-frame{
+    height:600px;
+}
+
+}
+
+</style>
+</head>
+<body>
+
+<header>
+
+<div class="navbar">
+
+<div class="logo">
+<div class="logo-circle">F</div>
+<div class="logo-text">Faisal Al Aziz</div>
+</div>
+
+<div class="menu-dropdown">
+
+<button class="menu-btn">
+<span></span>
+<span></span>
+<span></span>
+</button>
+
+<div class="dropdown-content" id="dropdownMenu">
+
+<a href="index.html">Beranda</a>
+<a href="about.html">Tentang Saya</a>
+<a href="projects.html">Proyek</a>
+<a href="certificate.html">Sertifikat</a>
+<a href="cv.html">CV Saya</a>
+<a href="contact.html">Kontak</a>
+
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+<section class="page">
+
+<h1 class="page-title">
+Curriculum <span>Vitae</span>
+</h1>
+
+<p class="page-desc">
+Lihat dan unduh CV terbaru saya di bawah ini.
+</p>
+
+<div class="cv-wrapper">
+
+<iframe
+class="cv-frame"
+src="LINK_PDF_GITHUB">
+</iframe>
+
+</div>
+
+<div class="cv-actions">
+
+<a href="LINK_PDF_GITHUB"
+target="_blank"
+class="download-btn">
+⬇ Download CV
+</a>
+
+</div>
+
+</section>
+
+<script>
+
+const menuBtn = document.querySelector(".menu-btn");
+const dropdown = document.getElementById("dropdownMenu");
+
+menuBtn.addEventListener("click", function(e){
+
+e.stopPropagation();
+
+menuBtn.classList.toggle("active");
+dropdown.classList.toggle("show");
+
+});
+
+document.addEventListener("click", function(){
+
+menuBtn.classList.remove("active");
+dropdown.classList.remove("show");
+
+});
+
+</script>
+
+</body>
+</html>
